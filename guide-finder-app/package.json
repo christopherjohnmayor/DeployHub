@@ -1,0 +1,31 @@
+{
+  "name": "guide-finder-app",
+  "version": "1.0.0",
+  "description": "A web application to help users find step-by-step instructions or guides for software installation and service deployment.",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
+  },
+  "keywords": [
+    "guides",
+    "instructions",
+    "software installation",
+    "service deployment"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
