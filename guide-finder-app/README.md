@@ -8,30 +8,25 @@ The Guide Finder App is a web application designed to help users find step-by-st
 - **Guide List**: Displays a list of available guides based on the search query.
 - **Guide Details**: Provides detailed information about a selected guide, including step-by-step instructions.
 - **AI Assistance**: If a guide is not found, the app uses AI to search for the missing instructions, validate them, and add them to the database.
+- **Admin Panel**: Allows reviewing, editing, and deleting guides, with authentication and feedback features.
 
 ## Project Structure
 ```
-guide-finder-app
-├── src
-│   ├── components
-│   │   ├── SearchBar.tsx
-│   │   ├── GuideList.tsx
-│   │   └── GuideDetails.tsx
-│   ├── pages
-│   │   ├── Home.tsx
-│   │   └── NotFound.tsx
-│   ├── api
-│   │   ├── guides.ts
-│   │   └── aiFetch.ts
-│   ├── db
-│   │   └── index.ts
-│   └── types
-│       └── guide.ts
-├── public
+guide-finder-app/
+├── api/
+│   └── server.js
+├── public/
 │   └── index.html
+├── src/
+│   ├── api/
+│   ├── components/
+│   ├── db/
+│   ├── pages/
+│   └── types/
+├── .env.example
 ├── package.json
-├── tsconfig.json
-└── README.md
+├── README.md
+└── ...
 ```
 
 ## Installation
@@ -54,6 +49,47 @@ guide-finder-app
    npm start
    ```
 2. Open your browser and navigate to `http://localhost:3000` to access the application.
+
+## Deployment Instructions
+
+### 1. Backend Setup
+- Copy `.env.example` to `.env` in `guide-finder-app/` and fill in your MongoDB URI, JWT secret, and admin password.
+- Install backend dependencies:
+  ```bash
+  cd guide-finder-app
+  npm install express cors body-parser jsonwebtoken mongodb dotenv
+  ```
+- Start the backend server:
+  ```bash
+  node api/server.js
+  ```
+  The backend will run on `http://localhost:4000` by default.
+
+### 2. Frontend Setup
+- In a new terminal, install frontend dependencies:
+  ```bash
+  npm install
+  ```
+- Start the frontend development server:
+  ```bash
+  npm start
+  ```
+  The frontend will run on `http://localhost:3000` by default.
+
+### 3. Production Build & Deployment
+- Build the frontend for production:
+  ```bash
+  npm run build
+  ```
+- Deploy the `build/` directory to your static hosting (Vercel, Netlify, etc.).
+- Deploy the backend (e.g., to Render, Heroku, or your own server).
+- Ensure environment variables are set in your production environment.
+- Make sure the frontend’s API calls point to your deployed backend.
+
+### Notes
+- The backend must be running and accessible to the frontend.
+- MongoDB must be available and configured in `.env`.
+- All admin API calls require a valid JWT (obtain via `/api/login`).
 
 ## Contribution
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
